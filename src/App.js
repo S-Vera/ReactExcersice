@@ -4,6 +4,12 @@ import axios from 'axios'
 import Reminders from './components/Reminders.js'
 import Form from './components/Form.js'
 
+const baseUrl = 'https://murmuring-anchorage-49468.herokuapp.com/api/reminders'
+
+const getAll = () => {
+	const request = axios.get(baseUrl)
+	return request.then(response => response.data)
+  }
 
 class App extends React.Component {
   constructor(props) {

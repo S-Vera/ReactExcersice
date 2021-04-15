@@ -22,7 +22,7 @@ class App extends React.Component {
   }
  
   componentDidMount() {
-    axios.get('http://localhost:3001/api/reminders')
+    axios.get('https://murmuring-anchorage-49468.herokuapp.com/api/reminders')
       .then(response => {
         this.setState({ reminders: response.data })
       })
@@ -40,7 +40,7 @@ class App extends React.Component {
 		alert(`${newObject.name} - Not added. Reminder is already on the list`);
 	} else {
 		
-		axios.post('http://localhost:3001/api/reminders', newObject)
+		axios.post('https://murmuring-anchorage-49468.herokuapp.com/api/reminders', newObject)
 			.then(response => {
 			  this.setState({
 				reminders: this.state.reminders.concat(response.data),
@@ -61,7 +61,7 @@ class App extends React.Component {
   
   deleteReminder = (id) => {  
 	  return () => {
-		axios.delete(`http://localhost:3001/api/reminders/${id}`)
+		axios.delete(`https://murmuring-anchorage-49468.herokuapp.com/api/reminders${id}`)
 		  .then(response => {
 			const reminders = this.state.reminders.filter(n => n.id !== id)
 			this.setState({
